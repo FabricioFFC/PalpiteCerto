@@ -41,6 +41,8 @@ end
 __END__
 
 @@ layout
+!!!
+%title #PalpiteCerto
 %link{:rel => "stylesheet", :href => "/stylesheet.css", :type => "text/css"}
 %img{:src => "/images/palpite_certo.png"}
 = yield
