@@ -45,6 +45,7 @@ __END__
 %html(lang='pt-BR')
   %head
     %meta(charset='utf-8')
+    %meta(Cache-Control='public, max-age=60')
     %title #PalpiteCerto
   %body
     %link{:rel => "stylesheet", :href => "/stylesheet.css", :type => "text/css"}
@@ -62,12 +63,19 @@ __END__
   %p
     Apostas até às 15 horas da terça-feira (15/06), usando a hashtag
     %b #palpitecerto
+    e
+    %b #bra
+    %br
+    %b Exemplo: #palpitecerto #bra 5 X 2 #prk
   %p
-    Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha. 
+    Só serão aceitas as apostas em jogos do Brasil. Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha. 
   %p
     %i Placar exato: 15 pontos
     %br
     %i Acertar o resultado: 10 pontos.      
+  %p
+    %i *só é válido o último palpite de cada pessoa. 
+    "Rendered at #{Time.now}"
   #header
     -@palpites.each do |palpite| 
       #user_bar
