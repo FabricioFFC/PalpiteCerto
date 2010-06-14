@@ -58,15 +58,17 @@ __END__
 #wrapper
   %h2
     Próximo Jogo
-    %img{:src => "http://a1.twimg.com/a/1276197224/images/worldcup/24/bra.png"} #bra X #prk 
-    %img{:src => "http://a1.twimg.com/a/1276197224/images/worldcup/24/prk.png"}
+    %img{:src => "/images/bra.png"} #bra X #prk 
+    %img{:src => "/images/prk.png"}
   %p
-    Apostas até às 15 horas da terça-feira (15/06), usando a hashtag
+    Apostas até às 15 horas da terça-feira (15/06), usando as hashtags:
     %b #palpitecerto
     e
     %b #bra
+    \.
     %br
-    %b Exemplo: #palpitecerto #bra 5 X 2 #prk
+    .example 
+      Exemplo: #palpitecerto #bra 5 X 2 #prk
   %p
     Só serão aceitas as apostas em jogos do Brasil. Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha. 
   %p
