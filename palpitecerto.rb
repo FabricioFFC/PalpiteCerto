@@ -42,13 +42,16 @@ __END__
 
 @@ layout
 !!!
-%title #PalpiteCerto
-%link{:rel => "stylesheet", :href => "/stylesheet.css", :type => "text/css"}
-%img{:src => "/images/palpite_certo.png"}
-= yield
-#footer
-  Copyright © 2010 Palpite Certo. Powered by <a href="http://twitter.com/fabricioffc" target="_blank">@fabricioffc</a> and <a href="http://twitter.com/andre_pantaliao" target="_blank">@andre_pantaliao</a>.
-
+%html(lang='pt-BR')
+  %head
+    %meta(charset='utf-8')
+    %title #PalpiteCerto
+  %body
+    %link{:rel => "stylesheet", :href => "/stylesheet.css", :type => "text/css"}
+    %img{:src => "/images/palpite_certo.png"}
+    = yield
+    #footer
+      Copyright © 2010 Palpite Certo. Powered by <a href="http://twitter.com/fabricioffc" target="_blank">@fabricioffc</a> and <a href="http://twitter.com/andre_pantaliao" target="_blank">@andre_pantaliao</a>.
 
 @@ index
 #wrapper
