@@ -51,6 +51,14 @@ a img {
 .clearfix {
     clear:both;
 }
+#explication {
+    border-bottom-color:#252525;
+    border-bottom-style:solid;
+    border-bottom-width:2px;
+    border-top-color:#252525;
+    border-top-style:solid;
+    border-top-width:2px;
+}
 #wrapper {
     -moz-background-clip:border;
     -moz-background-origin:padding;
@@ -117,5 +125,5 @@ p {
 
 .example{
     color:#008B00;
-    font-weight:bold;
+    font-weight:bold;    
 }

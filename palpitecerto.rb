@@ -60,24 +60,26 @@ __END__
     Próximo Jogo
     %img{:src => "/images/bra.png"} #bra X #prk 
     %img{:src => "/images/prk.png"}
-  %p
-    Apostas até às 15 horas da terça-feira (15/06), usando as hashtags:
-    %b #palpitecerto
-    e
-    %b #bra
-    \.
-    %br
-    .example 
-      Exemplo: #palpitecerto #bra 5 X 2 #prk
-  %p
-    Só serão aceitas as apostas em jogos do Brasil. Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha. 
-  %p
-    %i Placar exato: 15 pontos
-    %br
-    %i Acertar o resultado: 10 pontos.      
-  %p
-    %i *só é válido o último palpite de cada pessoa. 
-
+  #explication
+    %p
+      Apostas até às 15 horas da terça-feira (15/06), usando as hashtags:
+      %b #palpitecerto
+      e
+      %b #bra
+      \.
+      %br
+      .example 
+        Exemplo: #palpitecerto #bra 5 X 2 #prk
+    %p
+      Só serão aceitas as apostas em jogos do Brasil. Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha. 
+    %p
+      %i Placar exato: 15 pontos
+      %br
+      %i Acertar o resultado: 10 pontos.      
+    %p
+      %i *só é válido o último palpite de cada pessoa. 
+  %h3
+    Últimos palpites:
   #header
     -@palpites.each do |palpite| 
       #user_bar
