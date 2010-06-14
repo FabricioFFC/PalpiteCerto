@@ -19,7 +19,7 @@ body {
     padding-top:0;
 }
 a {
-    color:#006633;
+    color:black;
     font-weight:bold;
     text-decoration:none;
 }
@@ -96,6 +96,11 @@ a img {
     font-size:0.8em;
     padding-bottom:1.5em;
     text-align:center;
+}
+#footer a {
+    color:#006633;
+    font-weight:bold;
+    text-decoration:none;
 }
 #header h1 {
     float:left;

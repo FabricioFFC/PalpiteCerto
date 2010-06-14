@@ -52,7 +52,12 @@ __END__
     %img{:src => "/images/palpite_certo.png"}
     = yield
     #footer
-      Copyright © 2010 <a href="http://www.voicetechnology.com.br/" target="_blank">Voice Technology</a>. Powered by <a href="http://twitter.com/fabricioffc" target="_blank">@fabricioffc</a> and <a href="http://twitter.com/andre_pantaliao" target="_blank">@andre_pantaliao</a>.
+      Copyright © 2010 
+      %a{:href => "http://www.voicetechnology.com.br/"}Voice Technology.
+      Powered by 
+      %a{:href => "http://twitter.com/fabricioffc"}@fabricioffc
+      and
+      %a{:href=>"http://twitter.com/andre_pantaliao"}@andre_pantaliao.
 
 @@ index
 #wrapper
@@ -66,7 +71,6 @@ __END__
       %b #palpitecerto
       e
       %b #bra
-      \.
       %br
       .example 
         Exemplo: #palpitecerto #bra 5 X 2 #prk
@@ -88,7 +92,7 @@ __END__
       #user_bar
         %img{:src => palpite.profile_image_url}
         %b
-          ="@#{palpite.from_user}"
+          %a{:href => "http://www.twitter.com/#{palpite.from_user}"}="@#{palpite.from_user}"
         = " palpitou: #{palpite.text}"
       .clearfix
 
