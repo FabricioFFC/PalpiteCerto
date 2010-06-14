@@ -75,7 +75,7 @@ __END__
     %i Acertar o resultado: 10 pontos.      
   %p
     %i *só é válido o último palpite de cada pessoa. 
-    "Rendered at #{Time.now}"
+
   #header
     -@palpites.each do |palpite| 
       #user_bar
