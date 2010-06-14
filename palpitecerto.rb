@@ -66,7 +66,7 @@ __END__
     %img{:src => "/images/prk.png"}
   #explication
     %p
-      Palpites até às 15 horas da terça-feira (15/06), usando as hashtags:
+      Twitte o seu palpite até às 15 horas da terça-feira (15/06), usando as hashtags:
       %b #palpitecerto
       e
       %b #bra
