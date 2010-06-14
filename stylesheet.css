@@ -19,8 +19,9 @@ body {
     padding-top:0;
 }
 a {
-    color:#0066BB;
+    color:#006633;
     font-weight:bold;
+    text-decoration:none;
 }
 a img {
     border-bottom-color:-moz-use-text-color;

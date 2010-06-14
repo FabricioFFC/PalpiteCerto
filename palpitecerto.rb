@@ -52,7 +52,7 @@ __END__
     %img{:src => "/images/palpite_certo.png"}
     = yield
     #footer
-      Copyright © 2010 Palpite Certo. Powered by <a href="http://twitter.com/fabricioffc" target="_blank">@fabricioffc</a> and <a href="http://twitter.com/andre_pantaliao" target="_blank">@andre_pantaliao</a>.
+      Copyright © 2010 <a href="http://www.voicetechnology.com.br/" target="_blank">Voice Technology</a>. Powered by <a href="http://twitter.com/fabricioffc" target="_blank">@fabricioffc</a> and <a href="http://twitter.com/andre_pantaliao" target="_blank">@andre_pantaliao</a>.
 
 @@ index
 #wrapper
@@ -71,13 +71,16 @@ __END__
       .example 
         Exemplo: #palpitecerto #bra 5 X 2 #prk
     %p
-      Só serão aceitas as apostas em jogos do Brasil. Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha. 
+      Só serão aceitos os palpites* em jogos do Brasil. Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha**. 
     %p
       %i Placar exato: 15 pontos
       %br
       %i Acertar o resultado: 10 pontos.      
     %p
-      %i *só é válido o último palpite de cada pessoa. 
+      %i 
+        *só é válido o último palpite de cada pessoa. 
+        %br
+        **em caso de empate haverá sorteio entre os primeiros lugares.
   %h3
     Últimos palpites:
   #header
