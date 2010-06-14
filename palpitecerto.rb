@@ -44,8 +44,7 @@ __END__
 !!!
 %html(lang='pt-BR')
   %head
-    %meta(charset='utf-8')
-    %meta(Cache-Control='public, max-age=60')
+    %meta{'http-equiv' => "cache-control", :content => 'public', 'max-age' => 60, :charset => "utf-8"}
     %title #PalpiteCerto
   %body
     %link{:rel => "stylesheet", :href => "/stylesheet.css", :type => "text/css"}
@@ -60,6 +59,7 @@ __END__
       %a{:href=>"http://twitter.com/andre_pantaliao"}@andre_pantaliao.
 
 @@ index
+<input type="hidden" id="age" name="age" value="23" "Rendered at #{Time.now}" />
 #wrapper
   %h2
     Próximo Jogo
