@@ -59,7 +59,6 @@ __END__
       %a{:href=>"http://twitter.com/andre_pantaliao"}@andre_pantaliao.
 
 @@ index
-"Rendered at #{Time.now}"
 #wrapper
   %h2
     Próximo Jogo
