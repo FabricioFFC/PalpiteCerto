@@ -64,6 +64,10 @@ __END__
     %b #palpitecerto
   %p
     Quem fizer mais pontos até o último jogo do Brasil na Copa, ganha a camisa de uma seleção a sua escolha. 
+  %p
+    %i Placar exato: 15 pontos
+    %br
+    %i Acertar o resultado: 10 pontos.      
   #header
     -@palpites.each do |palpite| 
       #user_bar
