@@ -3,5 +3,5 @@ production:
   encoding: unicode
   database: palpite_certo
   pool: 5
-  username: postgres
+  username: root
   password: hexabrasil
