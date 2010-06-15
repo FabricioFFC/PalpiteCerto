@@ -3,3 +3,4 @@ twitter
 haml
 activerecord
 postgres
+ruby-postgres

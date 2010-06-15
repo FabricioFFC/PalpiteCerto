@@ -5,8 +5,10 @@ require 'haml'
 require 'active_record'
 
 ActiveRecord::Base.establish_connection(
-  :adapter => "postgresql",  
-  :database => "palpite_certo"
+ :adapter => "postgresql",  
+ :database => "palpite_certo",
+ :username => "root",
+ :password => "hexabrasil" 
 )
 
 class BraxPrk < ActiveRecord::Base
