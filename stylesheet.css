@@ -18,6 +18,13 @@ body {
     padding-right:0;
     padding-top:0;
 }
+
+.quantity{
+    color:#008B00;
+    font-weight:bold;
+    text-align:right;
+    font-size:14px;
+}
 a {
     color:black;
     font-weight:bold;
