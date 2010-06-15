@@ -2,7 +2,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: palpite_certo
-  hostname: localhost
+  host: localhost
   pool: 5
   username: root
   password: hexabrasil
