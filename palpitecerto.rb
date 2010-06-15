@@ -5,7 +5,7 @@ require 'haml'
 require 'active_record'
 
 ActiveRecord::Base.establish_connection(
- :adapter => "mysql",  
+ :adapter => "postgresql",  
  :database => "palpite_certo",
  :username => "root",
  :password => "root"
