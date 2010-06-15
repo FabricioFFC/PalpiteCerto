@@ -8,7 +8,7 @@ ActiveRecord::Base.establish_connection(
   :adapter => "postgresql",  
   :database => "palpite_certo",
   :username => "root",
-  :password => "hexabrasil"
+  :password => "hexabrasil",
   :host => "localhost"
 )
 
