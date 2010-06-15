@@ -6,10 +6,7 @@ require 'active_record'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "postgresql",  
-  :database => "palpite_certo",
-  :username => "root",
-  :password => "hexabrasil",
-  :host => "localhost"
+  :database => "palpite_certo"
 )
 
 class BraxPrk < ActiveRecord::Base
