@@ -8,7 +8,7 @@ ActiveRecord::Base.establish_connection(
  :adapter => "postgresql",  
  :database => "palpite_certo",
  :username => "postgres",
- :password => "hexabrasil" 
+ :password => "password" 
 )
 
 class Game < ActiveRecord::Base
