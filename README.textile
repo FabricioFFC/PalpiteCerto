@@ -9,6 +9,8 @@ You can run the this application running the following commands:
   $ ruby database.rb
   $ ruby palpitecerto.rb</pre>
 
+Don't forget to configure the connection with your database (originally with Postgres), that can be done editing database.rb and palpite.rb.
+
 h2. How to collaborate
 
 If you would collaborate, you can create a fork, apply the modification and submit a pull request :)
