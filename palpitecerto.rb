@@ -7,16 +7,15 @@ require 'active_record'
 ActiveRecord::Base.establish_connection(
  :adapter => "postgresql",  
  :database => "palpite_certo",
- :username => "root",
+ :username => "postgres",
  :password => "hexabrasil" 
 )
 
-class BraxPrk < ActiveRecord::Base
-  set_table_name 'braxprk'
+class Game < ActiveRecord::Base
 end
 
 def twitter_exists?(twitter)
-  size = BraxPrk.find_by_sql(["select twitter from braxprk where twitter = ?", twitter]).size
+  size = Game.find_by_sql(["select twitter from games where twitter = ?", twitter]).size
   size == 1
 end
 
@@ -30,7 +29,7 @@ end
 
 
 def add_new_twitter(result)
-    registro = BraxPrk.new
+    registro = Game.new
     registro.twitter = result.from_user
     registro.url_avatar = result.profile_image_url
     registro.palpite = result.text
@@ -57,14 +56,12 @@ end
 
 get '/' do
   search
-  @palpites = BraxPrk.all
+  @palpites = Game.all
   haml :index
 end
 
-get '/resultados' do
-  @palpites = search
-  process(@palpites)
-  haml :resultados
+get '/ranking' do
+  haml :ranking
 end
 
 __END__
@@ -91,7 +88,10 @@ __END__
 #wrapper
   #title
     %h2
-      .quantity="Já foram #{@palpites.size} palpites."
+      .quantity
+        ="Já foram #{@palpites.size} palpites."
+        %br
+        %a{:href => "/ranking"}Ir para o Ranking
       Próximo Jogo
       %img{:src => "/images/bra.png"} #bra X #prk 
       %img{:src => "/images/prk.png"}     
@@ -129,21 +129,15 @@ __END__
       -if i == 15 
         -break
 
-@@ resultados
+@@ ranking
 #wrapper
   %h2
+    .quantity
+      %a{:href => "/"}Voltar para a página inicial
     Ranking
   #header
-    - if @acertadores.empty?
-      %p
-        %i O Brasil ainda não jogou, aguarde o término da partida do Brasil para ver o ranking.
-        %br
-        %i 
-          %b Pra cima deles Brasil!
-    - else
-      -@acertadores.each do |acertador|
-        #user_bar
-          %img{:src => acertador[:avatar]}
-          %b
-            ="@#{acertador[:usuario]}"
-        .clearfix
+    %p
+      %i O Brasil ainda não jogou, aguarde o término da partida do Brasil para ver o ranking.
+      %br
+      %i 
+        %b Pra cima deles Brasil!

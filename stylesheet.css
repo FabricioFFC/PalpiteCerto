@@ -25,40 +25,24 @@ body {
     text-align:right;
     font-size:14px;
 }
+
+.quantity a {
+    color:#e81818;
+    font-weight:bold;
+    text-decoration:underline;
+    font-size:14px;
+}
+
 a {
     color:black;
     font-weight:bold;
     text-decoration:none;
 }
-a img {
-    border-bottom-color:-moz-use-text-color;
-    border-bottom-style:none;
-    border-bottom-width:0;
-    border-left-color-ltr-source:physical;
-    border-left-color-rtl-source:physical;
-    border-left-color-value:-moz-use-text-color;
-    border-left-style-ltr-source:physical;
-    border-left-style-rtl-source:physical;
-    border-left-style-value:none;
-    border-left-width-ltr-source:physical;
-    border-left-width-rtl-source:physical;
-    border-left-width-value:0;
-    border-right-color-ltr-source:physical;
-    border-right-color-rtl-source:physical;
-    border-right-color-value:-moz-use-text-color;
-    border-right-style-ltr-source:physical;
-    border-right-style-rtl-source:physical;
-    border-right-style-value:none;
-    border-right-width-ltr-source:physical;
-    border-right-width-rtl-source:physical;
-    border-right-width-value:0;
-    border-top-color:-moz-use-text-color;
-    border-top-style:none;
-    border-top-width:0;
-}
+
 .clearfix {
     clear:both;
 }
+
 #explication {
     border-bottom-color:#252525;
     border-bottom-style:solid;
@@ -67,6 +51,7 @@ a img {
     border-top-style:solid;
     border-top-width:2px;
 }
+
 #wrapper {
     -moz-background-clip:border;
     -moz-background-origin:padding;
@@ -98,17 +83,20 @@ a img {
     padding-top:1.5em;
     width:55em;
 }
+
 #footer {
     color:#252525;
     font-size:0.8em;
     padding-bottom:1.5em;
     text-align:center;
 }
+
 #footer a {
     color:#006633;
     font-weight:bold;
     text-decoration:none;
 }
+
 #header h1 {
     float:left;
     font-size:3em;
@@ -121,17 +109,21 @@ a img {
     padding-right:0;
     padding-top:0;
 }
+
 #header h1 a {
     color:#005577;
     text-decoration:none;
 }
+
 #header #user_bar {
     float:left;
     margin-top:1.2em;
 }
+
 #header #user_bar img {
     vertical-align:middle;
 }
+
 p {
     line-height:150%;
 }
