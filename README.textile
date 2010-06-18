@@ -4,7 +4,7 @@ h2. How to setup application
 
 You can run the this application running the following commands:
 
-<pre>  $ git clone git://github.com:FabricioFFC/PalpiteCerto.git && cd palpitecerto
+<pre>  $ git clone git://github.com/FabricioFFC/PalpiteCerto.git && mv PalpiteCerto palpitecerto && cd palpitecerto
   $ gem install sinatra twitter haml pg
   $ ruby database.rb
   $ ruby palpitecerto.rb</pre>
