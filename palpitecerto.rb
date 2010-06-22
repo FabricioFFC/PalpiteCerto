@@ -2,14 +2,12 @@ require 'rubygems'
 require 'sinatra'
 require 'twitter'
 require 'haml'
+require 'pg'
 require 'active_record'
 
-ActiveRecord::Base.establish_connection(
- :adapter => "postgresql",  
- :database => "palpite_certo",
- :username => "postgres",
- :password => "password" 
-)
+dbconfig = YAML.load(File.read('config/database.yml'))
+ActiveRecord::Base.establish_connection dbconfig['production']
+
 
 class Game < ActiveRecord::Base
 end
