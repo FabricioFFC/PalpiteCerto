@@ -3,3 +3,6 @@ production:
   database: palpite_certo
   username: postgres
   password: hexabrasil
+  
+
+

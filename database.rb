@@ -5,7 +5,7 @@ ActiveRecord::Base.establish_connection(
  :adapter => "postgresql",  
  :database => "palpite_certo",
  :username => "postgres",
- :password => "password"
+ :password => "hexabrasil"
 )
 
 ActiveRecord::Schema.define(:version => 0) do
@@ -13,9 +13,15 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer "id", :auto_increment => true, :primary_key=>true, :null => false
     t.string "twitter"
     t.string "url_avatar"
-    t.string "palpite"
-    t.string "placar"
-    t.integer "pontos"
-    t.datetime "hora_do_palpite"
+    t.string "shot"
+    t.string "scores"
+    t.string "result"
+    t.string "match"
+    t.integer "points"
+    t.datetime "shot_time"
+  end
+  create_table "controls", :force => true do |t|
+    t.string :match
+    t.boolean :finished
   end
 end
