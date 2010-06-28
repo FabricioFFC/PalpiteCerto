@@ -26,43 +26,21 @@ class Shot
 
 private
 
-  def twitter_not_exists?(twitter)
-    size = Game.find_by_sql(["select twitter from games where twitter = ?", twitter]).size
-    size == 0
-  end
-  
-  def remove_zero_from_scores(scores)
-    unless scores.nil? 
-      if scores.length == 2 and scores[0..0] == "0" then
-        scores = scores[1..1]
-      else
-        scores
-      end
-    end
+  def a_valid_shot?(result)
+    result.text.include?("#bra") and !shots_finished? and is_new?(result) and not_included_previous_adversaries?(result)
   end
 
-  def discover_scores(shot)
-    result = shot[/#bra(.*?)$/, 1].upcase
-    position_of_X = result.index('X')
-    brazil_scores = remove_zero_from_scores(result[1...position_of_X][/\d{1,2}/])
-    adversary_scores = remove_zero_from_scores(result[(position_of_X+1)..result.length][/\d{1,2}/])
-    "#{brazil_scores}X#{adversary_scores}"
+  def shots_finished?
+    Control.last(:select => "finished").finished
   end
   
-  def discover_result(scores)
-    brazil_scores = scores[0..0]
-    adversary_scores = scores[2..2]
-    if brazil_scores == adversary_scores then
-      result = "e"
-    else
-      if brazil_scores.to_i > adversary_scores.to_i then  
-        result = "v"
-      else
-        result = "d"
-      end
+  def not_included_previous_adversaries?(result)
+    previous_matches = Control.all(:conditions => {:finished => true})
+    previous_matches.each do |match|
+      previous_adversary = match.match[/braX(.*?)$/, 1].upcase
+      return false if result.text.upcase.include?(previous_adversary)
     end
-    result
-  end
+  end  
 
   def add_new_shot(shot)
     scores = discover_scores(shot.text)
@@ -79,14 +57,52 @@ private
       :match => match
     )
   end
+
+  def discover_scores(shot)
+    result = shot[/#bra(.*?)$/, 1].upcase
+    position_of_X = result.index('X')
+    brazil_scores = remove_zero_from_scores(result[1...position_of_X][/\d{1,2}/])
+    adversary_scores = remove_zero_from_scores(result[(position_of_X+1)..result.length][/\d{1,2}/])
+    "#{brazil_scores}X#{adversary_scores}"
+  end
   
-  def shot_not_exists?(shot, twitter)
-    size = Game.find_by_sql(["select twitter from games where shot = ? and twitter = ?", shot, twitter])
-    size == 0
+  def remove_zero_from_scores(scores)
+    unless scores.nil? 
+      if scores.length == 2 and scores[0..0] == "0" then
+        scores = scores[1..1]
+      else
+        scores
+      end
+    end
+  end
+  
+  def discover_result(scores)
+    brazil_scores = scores[0..0]
+    adversary_scores = scores[2..2]
+    if brazil_scores == adversary_scores then
+      result = "e"
+    else
+      if brazil_scores.to_i > adversary_scores.to_i then  
+        result = "v"
+      else
+        result = "d"
+      end
+    end
+    result
   end
   
   def is_new?(shot)
     twitter_not_exists?(shot.from_user) || shot_not_exists?(shot.text, shot.from_user)      
+  end
+  
+  def twitter_not_exists?(twitter)
+    size = Game.find_by_sql(["select twitter from games where twitter = ?", twitter]).size
+    size == 0
+  end
+  
+  def shot_not_exists?(shot, twitter)
+    size = Game.find_by_sql(["select twitter from games where shot = ? and twitter = ?", shot, twitter])
+    size == 0
   end
 
   def process_control(result)    
@@ -105,22 +121,6 @@ private
     if tweet.include?("já estão")
       adversary = tweet[/contra #(.*?)$/, 1]
       Control.create!(:match => "braX#{adversary}", :finished => false) 
-    end
-  end
-  
-  def shots_finished?
-    Control.last(:select => "finished").finished
-  end
-  
-  def a_valid_shot?(result)
-    result.text.include?("#bra") and !shots_finished? and is_new?(result) and not_included_previous_adversaries?(result)
-  end
-  
-  def not_included_previous_adversaries?(result)
-    previous_matches = Control.all(:conditions => {:finished => true})
-    previous_matches.each do |match|
-      previous_adversary = match.match[/braX(.*?)$/, 1].upcase
-      return false if result.text.upcase.include?(previous_adversary)
     end
   end
 

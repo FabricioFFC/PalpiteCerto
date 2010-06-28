@@ -5,7 +5,7 @@ ActiveRecord::Base.establish_connection(
  :adapter => "postgresql",  
  :database => "palpite_certo",
  :username => "postgres",
- :password => "hexabrasil"
+ :password => "password"
 )
 
 ActiveRecord::Schema.define(:version => 0) do
