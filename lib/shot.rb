@@ -5,7 +5,27 @@ class Game < ActiveRecord::Base
 end
 
 class Shot
-  
+
+  def update_shots
+    search = Twitter::Search.new.containing('#palpitecerto')
+    search.per_page(1000)
+    search.each do |result| 
+      if a_valid_shot?(result)
+        add_new_shot(result)
+      end
+    end
+  end
+
+  def admin_shots
+    search = Twitter::Search.new.from('palpite_certo')
+    search.per_page(1)
+    search.each  do |result| 
+      process_control(result)
+    end
+  end
+
+private
+
   def twitter_not_exists?(twitter)
     size = Game.find_by_sql(["select twitter from games where twitter = ?", twitter]).size
     size == 0
@@ -91,14 +111,6 @@ class Shot
   def shots_finished?
     Control.last(:select => "finished").finished
   end
-
-  def admin_shots
-    search = Twitter::Search.new.from('palpite_certo')
-    search.per_page(1)
-    search.each  do |result| 
-      process_control(result)
-    end
-  end
   
   def a_valid_shot?(result)
     result.text.include?("#bra") and !shots_finished? and is_new?(result) and not_included_previous_adversaries?(result)
@@ -109,16 +121,6 @@ class Shot
     previous_matches.each do |match|
       previous_adversary = match.match[/braX(.*?)$/, 1].upcase
       return false if result.text.upcase.include?(previous_adversary)
-    end
-  end
-
-  def update_shots
-    search = Twitter::Search.new.containing('#palpitecerto')
-    search.per_page(1000)
-    search.each do |result| 
-      if a_valid_shot?(result)
-        add_new_shot(result)
-      end
     end
   end
 
@@ -136,4 +138,5 @@ class Shot
       end
     end
   end
+  
 end

@@ -15,10 +15,11 @@ get '/stylesheet.css' do
 end
 
 get '/' do
-    @shot = Shot.new
-    @shot.update_shots
-    @shots = Game.find(:all, :order => "id DESC")
-    @mais_apostados = Game.find_by_sql("select scores, count(*) as ct from games where match = 'braXchi' group by scores order by ct desc limit 5 ")
+  @shot = Shot.new
+  @shot.update_shots
+  @shots = Game.all(:order => "id DESC")
+  last_match = Control.last(:select => "match").match
+  @mais_apostados = Game.find_by_sql("select scores, count(*) as ct from games where match = '#{last_match}' group by scores order by ct desc limit 5 ")
   haml :index
 end
 
