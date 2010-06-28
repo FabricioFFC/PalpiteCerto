@@ -115,7 +115,7 @@ class Shot
   def update_shots
     search = Twitter::Search.new.containing('#palpitecerto')
     search.per_page(1000)
-    search.reverse_each do |result| 
+    search.each do |result| 
       if a_valid_shot?(result)
         add_new_shot(result)
       end
